@@ -29,7 +29,7 @@
 	"workbench.colorTheme": "SynthWave '84",
 	"workbench.iconTheme": "material-icon-theme",
 	"files.exclude": {
-		"**/.git": true
+		"**/.git": false
 	},
 	"editor.fontFamily": "JetBrains Mono",
 	"editor.codeLensFontFamily": "JetBrains Mono",

@@ -1,0 +1,26 @@
+{
+	"recommendations": [
+		"biomejs.biome",
+		"oven.bun-vscode",
+		"bradlc.vscode-tailwindcss",
+		"ritwickdey.LiveServer",
+		"RobbOwen.synthwave-vscode",
+		"ms-vscode-remote.remote-ssh",
+		"miguelsolorio.fluent-icons",
+		"PKief.material-icon-theme",
+		"ms-vscode-remote.remote-ssh-edit",
+		"ms-vscode.remote-explorer",
+		"Cardinal90.multi-cursor-case-preserve",
+		"YoavBls.pretty-ts-errors",
+		"stivo.tailwind-fold",
+		"meganrogge.template-string-converter",
+		"Vercel.turbo-vsc",
+		"ms-azuretools.vscode-docker",
+		"github.vscode-github-actions",
+		"GitHub.copilot",
+		"DavidAnson.vscode-markdownlint",
+		"GitHub.copilot-chat",
+		"unifiedjs.vscode-mdx",
+		"GitHub.vscode-pull-request-github"
+	]
+}

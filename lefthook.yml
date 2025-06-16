@@ -9,8 +9,9 @@ prepare-commit-msg:
     commitzen:
       interactive: true
       run: |
-        if [ -z "$2" ] || [ "$2" != "message" ]; then
-          bun run cz --hook
+        # Only run commitizen if commit message wasn't provided via -m flag
+        if [ "$2" != "message" ]; then
+          exec < /dev/tty && bun run cz --hook || true
         fi
       env:
         LEFTHOOK: 0
