@@ -1,33 +1,37 @@
 {
-  "name": "turborepo",
-  "version": "1.0.0",
-  "module": "index.ts",
-  "type": "module",
-  "private": true,
-  "config": {
-    "commitizen": {
-      "path": "cz-gitmoji-adapter"
-    }
-  },
-  "scripts": {
-    "format": "biome format",
-    "lint": "biome check",
-    "lint:fix": "biome check --fix",
-    "commit": "bunx cz"
-  },
-  "devDependencies": {
-    "@biomejs/biome": "2.0.0-beta.6",
-    "@types/bun": "latest",
-    "commitizen": "^4.3.1",
-    "commitlint-config-gitmoji": "^2.3.1",
-    "cz-gitmoji-adapter": "^2.0.0",
-    "inquirer": "^12.6.3",
-    "lefthook": "^1.11.13",
-    "turbo": "^2.5.4"
-  },
-  "peerDependencies": {
-    "typescript": "^5"
-  },
-  "packageManager": "bun@1.2.16",
-  "workspaces": ["apps/*", "packages/*"]
+	"name": "turborepo",
+	"version": "1.0.0",
+	"module": "index.ts",
+	"type": "module",
+	"private": true,
+	"config": {
+		"commitizen": {
+			"path": "cz-gitmoji-adapter"
+		}
+	},
+	"scripts": {
+		"format": "biome format",
+		"lint": "biome check",
+		"lint:fix": "biome check --fix",
+		"commit": "bunx cz",
+		"dev": "turbo run dev --parallel"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "2.0.0-beta.6",
+		"@types/bun": "latest",
+		"commitizen": "^4.3.1",
+		"commitlint-config-gitmoji": "^2.3.1",
+		"cz-gitmoji-adapter": "^2.0.0",
+		"inquirer": "^12.6.3",
+		"lefthook": "^1.11.13",
+		"turbo": "^2.5.4"
+	},
+	"peerDependencies": {
+		"typescript": "^5"
+	},
+	"packageManager": "bun@1.2.16",
+	"workspaces": [
+		"apps/*",
+		"packages/*"
+	]
 }
