@@ -40,7 +40,7 @@
 					"name": "perf"
 				},
 				{
-					"emoji": "♻️",
+					"emoji": "♻️ ",
 					"code": ":recycle:",
 					"description": "Refactor code",
 					"name": "refactor"
