@@ -1,22 +1,9 @@
-# pre-push:
-#   commands:
-#     check:
-#       glob: "*.{js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx,json,jsonc}"
-#       run: npx @biomejs/biome check --no-errors-on-unmatched --files-ignore-unknown=true --colors=off {push_files}
-
-prepare-commit-msg:
+pre-commit:
   commands:
-    commitzen:
-      interactive: true
-      run: |
-        # Only run commitizen if commit message wasn't provided via -m flag
-        if [ "$2" != "message" ]; then
-          exec < /dev/tty && bun run cz --hook || true
-        fi
-      env:
-        LEFTHOOK: 0
-
+    check:
+      run: bunx turbo format
+      
 commit-msg:
   commands:
     "lint commit message":
-      run: bun run commitlint --edit {1}
+      run: bunx --no-install commitlint --edit "$1" || ( echo "✍📤 It seems that the format of the commit does not follow the commit convention. You can also try committing with the 'npm run commit' command."; false; )
