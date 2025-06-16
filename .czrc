@@ -1,0 +1,81 @@
+{
+	"path": "cz-gitmoji-adapter",
+	"config": {
+		"cz-gitmoji-adapter": {
+			"types": [
+				{
+					"emoji": "🔨",
+					"code": ":hammer:",
+					"description": "Add or update development scripts",
+					"name": "build"
+				},
+				{
+					"emoji": "💚",
+					"code": ":green_heart:",
+					"description": "Fix CI Build",
+					"name": "ci"
+				},
+				{
+					"emoji": "📝",
+					"code": ":memo:",
+					"description": "Add or update documentation",
+					"name": "docs"
+				},
+				{
+					"emoji": "✨",
+					"code": ":sparkles:",
+					"description": "Introduce new features",
+					"name": "feat"
+				},
+				{
+					"emoji": "🐛",
+					"code": ":bug:",
+					"description": "Fix a bug",
+					"name": "fix"
+				},
+				{
+					"emoji": "⚡️",
+					"code": ":zap:",
+					"description": "Improve performance",
+					"name": "perf"
+				},
+				{
+					"emoji": "♻️",
+					"code": ":recycle:",
+					"description": "Refactor code",
+					"name": "refactor"
+				},
+				{
+					"emoji": "⏪",
+					"code": ":rewind:",
+					"description": "Revert changes",
+					"name": "revert"
+				},
+				{
+					"emoji": "🎨",
+					"code": ":art:",
+					"description": "Improve structure / format of the code",
+					"name": "style"
+				},
+				{
+					"emoji": "🧪",
+					"code": ":test_tube:",
+					"description": "Add or update tests",
+					"name": "test"
+				},
+				{
+					"emoji": "🔧",
+					"code": ":wrench:",
+					"description": "Add or update configuration files",
+					"name": "chore"
+				},
+				{
+					"emoji": "🚧",
+					"code": ":construction:",
+					"description": "Work in progress",
+					"name": "wip"
+				}
+			]
+		}
+	}
+}
