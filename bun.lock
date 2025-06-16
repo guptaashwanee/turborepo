@@ -46,6 +46,9 @@
     "packages/typescript-config": {
       "name": "@anscer/typescript-config",
       "version": "0.0.0",
+      "devDependencies": {
+        "typescript": "^5.8.3",
+      },
     },
     "packages/ui": {
       "name": "@anscer/ui",

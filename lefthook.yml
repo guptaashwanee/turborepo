@@ -8,7 +8,10 @@ prepare-commit-msg:
   commands:
     commitzen:
       interactive: true
-      run: bun run cz --hook # Or npx cz --hook
+      run: |
+        if [ -z "$2" ] || [ "$2" != "message" ]; then
+          bun run cz --hook
+        fi
       env:
         LEFTHOOK: 0
 

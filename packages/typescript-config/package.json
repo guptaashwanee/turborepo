@@ -4,6 +4,12 @@
 	"private": true,
 	"scripts": {
 		"clean": "git clean -xdf .cache .turbo dist node_modules",
-		"typecheck": "tsc --noEmit --emitDeclarationOnly false"
+		"typecheck": "tsc --noEmit --emitDeclarationOnly false",
+		"format": "biome format .",
+		"lint": "biome check .",
+		"lint:fix": "biome check --fix ."
+	},
+	"devDependencies": {
+		"typescript": "^5.8.3"
 	}
 }

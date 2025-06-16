@@ -10,9 +10,12 @@
 		}
 	},
 	"scripts": {
-		"format": "biome format",
-		"lint": "biome check",
-		"lint:fix": "biome check --fix",
+		"format": "turbo run format",
+		"format:root": "biome format .",
+		"lint": "turbo run lint",
+		"lint:root": "biome check .",
+		"lint:fix": "turbo run lint:fix",
+		"lint:fix:root": "biome check --fix .",
 		"commit": "bunx cz",
 		"dev": "turbo run dev --parallel"
 	},

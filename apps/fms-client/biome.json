@@ -21,6 +21,6 @@
 		}
 	},
 	"files": {
-		"includes": ["!src/**/*.tsx"]
+		"includes": ["!/src/routeTree.gen.ts"]
 	}
 }
