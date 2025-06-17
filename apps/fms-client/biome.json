@@ -18,9 +18,10 @@
 				"noInferrableTypes": "error",
 				"noUselessElse": "error"
 			}
-		}
+		},
+		"includes": ["!**/src/routeTree.gen.ts"]
 	},
 	"files": {
-		"includes": ["!/src/routeTree.gen.ts"]
+		"includes": ["!**/src/routeTree.gen.ts"]
 	}
 }

@@ -96,9 +96,8 @@ export default function Component() {
 					/>
 				</div>
 			</div>
-			<p
+			<section
 				className="mt-4 text-center text-muted-foreground text-xs"
-				role="region"
 				aria-live="polite"
 			>
 				Calendar with presets -{" "}
@@ -110,7 +109,7 @@ export default function Component() {
 				>
 					React DayPicker
 				</a>
-			</p>
+			</section>
 		</div>
 	);
 }

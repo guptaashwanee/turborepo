@@ -10,7 +10,7 @@ function RouteComponent() {
 	return (
 		<>
 			<div>Hello "/"!</div>
-			<Calendar />
+			<Calendar/>
 			<Button>Button</Button>
 		</>
 	);

@@ -1,7 +1,10 @@
 pre-commit:
   commands:
-    check:
+    format:
       run: bunx turbo format
+    lint:
+      run: bunx turbo lint
+      
 commit-msg:
   commands:
     "lint commit message":
