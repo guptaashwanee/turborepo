@@ -5,7 +5,7 @@
 	"type": "module",
 	"scripts": {
 		"dev": "vite",
-		"check-types": "tsc --noEmit",
+		"typecheck": "tsc --noEmit",
 		"build": "tsc -b && vite build",
 		"format": "biome format .",
 		"lint": "biome check .",
@@ -24,6 +24,7 @@
 	},
 	"devDependencies": {
 		"@anscer/typescript-config": "*",
+		"@anscer/logger": "*",
 		"@tanstack/router-plugin": "^1.120.10",
 		"@types/react": "^19.1.5",
 		"@types/react-dom": "^19.1.5",

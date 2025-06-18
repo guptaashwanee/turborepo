@@ -34,7 +34,16 @@
 	"emmet.showExpandedAbbreviation": "always",
 	"prettier.enable": false,
 	"typescript.tsdk": "node_modules/typescript/lib",
-	"tailwindCSS.experimental.configFile": "packages/design-system/styles/globals.css",
+	"typescript.suggest.autoImports": true,
+	"editor.foldingImportsByDefault": true,
+	"tailwindCSS.emmetCompletions": true,
+	"files.associations": {
+		"*.css": "tailwindcss"
+	},
+	"tailwindCSS.includeLanguages": {
+		"plaintext": "html"
+	},
+	"tailwindCSS.experimental.configFile": "packages/ui/src/styles/globals.css",
 	"workbench.colorTheme": "SynthWave '84",
 	"workbench.iconTheme": "material-icon-theme",
 	"files.exclude": {
