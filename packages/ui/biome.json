@@ -19,8 +19,5 @@
 				"noUselessElse": "error"
 			}
 		}
-	},
-	"files": {
-		"includes": ["!src/**/*.tsx"]
 	}
 }

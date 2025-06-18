@@ -11,7 +11,7 @@
 	},
 	"scripts": {
 		"format": "turbo run format",
-		"format:root": "biome format .",
+		"format:root": "biome format --write .",
 		"lint": "turbo run lint",
 		"lint:root": "biome check .",
 		"lint:fix": "turbo run lint:fix",

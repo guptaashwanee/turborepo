@@ -6,7 +6,7 @@
 	"scripts": {
 		"clean": "git clean -xdf .cache .turbo dist node_modules",
 		"typecheck": "tsc --noEmit --emitDeclarationOnly false",
-		"format": "biome format .",
+		"format": "biome format --write .",
 		"lint": "biome check .",
 		"lint:fix": "biome check --fix ."
 	},
