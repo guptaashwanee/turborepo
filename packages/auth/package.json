@@ -1,0 +1,25 @@
+{
+	"name": "@anscer/auth",
+	"version": "0.1.0",
+	"description": "Authentication module for ANSCER",
+	"private": true,
+	"scripts": {
+		"clean": "rm -rf .turbo node_modules",
+		"lint": "biome check .",
+		"lint:fix": "biome check --fix .",
+		"format": "biome format --write .",
+		"typecheck": "tsc --noEmit"
+	},
+	"dependencies": {
+		"better-auth": "^1.2.9",
+		"react": "^19.1.0",
+		"zod": "^3.25.67"
+	},
+	"devDependencies": {
+		"@anscer/typescript-config": "*",
+		"@types/node": "^24.0.3",
+		"@types/react": "^19.1.8",
+		"@types/react-dom": "^19.1.6",
+		"typescript": "^5.8.3"
+	}
+}
