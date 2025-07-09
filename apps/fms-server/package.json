@@ -1,0 +1,21 @@
+{
+	"name": "fms-server",
+	"private": true,
+	"version": "0.0.0",
+	"type": "module",
+	"scripts": {
+		"dev": "bun run --hot src/index.ts",
+		"typecheck": "tsc --noEmit",
+		"format": "biome format --write .",
+		"lint": "biome check .",
+		"lint:fix": "biome check --fix ."
+	},
+	"dependencies": {
+		"hono": "^4.8.4",
+		"@anscer/logger": "workspace:*"
+	},
+	"devDependencies": {
+		"@anscer/typescript-config": "workspace:*",
+		"@types/bun": "latest"
+	}
+}

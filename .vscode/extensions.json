@@ -22,6 +22,7 @@
 		"GitHub.copilot-chat",
 		"unifiedjs.vscode-mdx",
 		"GitHub.vscode-pull-request-github",
-		"eamodio.gitlens"
+		"eamodio.gitlens",
+		"steoates.autoimport"
 	]
 }

@@ -23,8 +23,8 @@
 		"react-dom": "^19.1.0"
 	},
 	"devDependencies": {
-		"@anscer/typescript-config": "*",
-		"@anscer/logger": "*",
+		"@anscer/typescript-config": "workspace:*",
+		"@anscer/logger": "workspace:*",
 		"@tanstack/router-plugin": "^1.120.10",
 		"@types/react": "^19.1.5",
 		"@types/react-dom": "^19.1.5",

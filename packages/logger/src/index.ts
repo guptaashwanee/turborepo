@@ -1,7 +1,6 @@
-import pino from "pino";
+import { pino } from "pino";
 
-const logger = pino();
-export const loggerWithTimestamp = pino({
+export const logger = pino({
 	transport: {
 		target: "pino-pretty",
 		options: {
@@ -12,4 +11,5 @@ export const loggerWithTimestamp = pino({
 	},
 });
 
-export default logger;
+export default logger as pino.Logger;
+export type Logger = pino.Logger;
