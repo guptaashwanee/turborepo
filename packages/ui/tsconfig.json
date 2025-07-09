@@ -2,6 +2,10 @@
 	"extends": "@anscer/typescript-config/react-library.json",
 	"compilerOptions": {
 		"baseUrl": ".",
+		"noEmit": true,
+		"allowImportingTsExtensions": true,
+		"moduleResolution": "Bundler",
+		"module": "ESNext",
 		"paths": {
 			"@anscer/ui/*": ["./src/*"]
 		}
