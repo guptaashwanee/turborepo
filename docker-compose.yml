@@ -1,0 +1,50 @@
+version: '3.8'
+
+services:
+  fms-server:
+    build:
+      context: .
+      dockerfile: ./apps/fms-server/Dockerfile
+    container_name: fms-server
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    restart: unless-stopped
+    networks:
+      - app-network
+
+  fms-client:
+    build:
+      context: .
+      dockerfile: ./apps/fms-client/Dockerfile
+    container_name: fms-client
+    ports:
+      - "8080:8080"
+    depends_on:
+      fms-server:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    restart: unless-stopped
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  # Add any persistent volumes here if needed
+  app-data:

@@ -3,7 +3,8 @@
 	"ui": "tui",
 	"tasks": {
 		"build": {
-			"outputs": ["dist/**"]
+			"dependsOn": ["^build"],
+			"outputs": ["dist/**", "build/**", ".next/**", "out/**"]
 		},
 		"typecheck": {
 			"dependsOn": ["^typecheck"]
@@ -11,6 +12,10 @@
 		"dev": {
 			"persistent": true,
 			"cache": false
+		},
+		"test": {
+			"dependsOn": ["^build"],
+			"outputs": ["coverage/**"]
 		},
 		"format": {
 			"cache": false

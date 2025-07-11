@@ -1,12 +1,14 @@
 {
 	"name": "fms-client",
 	"private": true,
-	"version": "0.0.0",
+	"version": "0.1.0",
 	"type": "module",
 	"scripts": {
 		"dev": "vite",
 		"typecheck": "tsc --noEmit",
 		"build": "tsc -b && vite build",
+		"test": "vitest",
+		"test:ui": "vitest --ui",
 		"format": "biome format --write .",
 		"lint": "biome check .",
 		"lint:fix": "biome check --fix .",

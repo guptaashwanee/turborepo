@@ -8,4 +8,15 @@ app.get("/", (c) => {
 	return c.text("Hello Hono!");
 });
 
-export default app;
+app.get("/health", (c) => {
+	return c.json({ status: "healthy", timestamp: new Date().toISOString() });
+});
+
+const port = process.env.PORT || 3000;
+
+logger.info(`Starting server on port ${port}`);
+
+export default {
+	port,
+	fetch: app.fetch,
+};
