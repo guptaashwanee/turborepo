@@ -6,6 +6,8 @@
 		"allowImportingTsExtensions": true,
 		"moduleResolution": "Bundler",
 		"module": "ESNext",
+		"jsx": "react-jsx",
+		"lib": ["es2022", "DOM", "DOM.Iterable"],
 		"paths": {
 			"@anscer/ui/*": ["./src/*"]
 		}

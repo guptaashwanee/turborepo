@@ -20,6 +20,7 @@
 		"dev": "turbo run dev --parallel",
 		"build": "turbo run build",
 		"test": "turbo run test",
+		"typecheck": "turbo run typecheck",
 		"release": "semantic-release",
 		"release:dry": "semantic-release --dry-run",
 		"release:packages": "node scripts/release-packages.mjs"
@@ -45,8 +46,18 @@
 		"typescript": "^5.8.3"
 	},
 	"packageManager": "bun@1.2.18",
-	"workspaces": [
-		"apps/*",
-		"packages/*"
-	]
+	"workspaces": {
+		"packages": [
+			"apps/*",
+			"packages/*"
+		],
+		"catalogs": {
+			"client": {
+				"react": "^19.1.0",
+				"react-dom": "^19.1.0",
+				"@types/react": "^19.1.5",
+				"@types/react-dom": "^19.1.5"
+			}
+		}
+	}
 }
