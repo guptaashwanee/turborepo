@@ -26,7 +26,7 @@
 		"release:packages": "node scripts/release-packages.mjs"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "2.0.0",
+		"@biomejs/biome": "2.1.1",
 		"@commitlint/cli": "^19.8.1",
 		"@semantic-release/changelog": "^6.0.3",
 		"@semantic-release/github": "^11.0.3",
@@ -36,8 +36,8 @@
 		"conventional-changelog-gitmoji-config": "^1.5.2",
 		"cz-gitmoji-adapter": "^2.0.0",
 		"inquirer": "^12.7.0",
-		"lefthook": "^1.12.1",
-		"semantic-release": "^24.2.6",
+		"lefthook": "^1.12.2",
+		"semantic-release": "^24.2.7",
 		"semantic-release-gitmoji": "^1.6.8",
 		"semantic-release-monorepo": "^8.0.2",
 		"turbo": "^2.5.4"

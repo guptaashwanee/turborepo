@@ -1,5 +1,5 @@
-import { buttonVariants } from "@anscer/ui/components/button.js";
-import { cn } from "@anscer/ui/lib/utils.js";
+import { buttonVariants } from "@anscer/ui/components/button";
+import { cn } from "@anscer/ui/lib/utils";
 import { ChevronLeftIcon, ChevronRightIcon } from "lucide-react";
 import type * as React from "react";
 import { DayPicker } from "react-day-picker";
