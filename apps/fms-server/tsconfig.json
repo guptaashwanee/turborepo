@@ -2,7 +2,7 @@
 	"extends": "@anscer/typescript-config/base.json",
 	"compilerOptions": {
 		"strict": true,
-		"baseUrl": ".",
+		"baseUrl": "."
 	},
 	"include": ["src/**/*"]
 }
