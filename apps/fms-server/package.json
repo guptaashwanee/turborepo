@@ -7,7 +7,6 @@
 		"dev": "bun run --hot src/index.ts",
 		"build": "bun build src/index.ts --outdir dist --target bun",
 		"typecheck": "tsc --noEmit",
-		"test": "bun test",
 		"format": "biome format --write .",
 		"lint": "biome check .",
 		"lint:fix": "biome check --fix ."
