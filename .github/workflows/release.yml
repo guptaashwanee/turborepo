@@ -2,9 +2,9 @@ name: Release
 
 on:
   push:
-    branches: [main, master, develop, release]
+    branches: [main]
   pull_request:
-    branches: [main, master]
+    branches: [main]
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -22,15 +22,12 @@ jobs:
     steps:
       - name: 🏗 Setup repo
         uses: actions/checkout@v4
-
       - name: 🏗 Setup Bun
         uses: oven-sh/setup-bun@v2
         with:
           bun-version: latest
-
       - name: 📦 Install dependencies
         run: bun install --frozen-lockfile
-
       - name: 🎯 Setup Turbo cache
         id: turbo-cache
         uses: actions/cache@v4
@@ -46,15 +43,12 @@ jobs:
     steps:
       - name: 🏗 Setup repo
         uses: actions/checkout@v4
-
       - name: 🏗 Setup Bun
         uses: oven-sh/setup-bun@v2
         with:
           bun-version: latest
-
       - name: 📦 Install dependencies
         run: bun install --frozen-lockfile
-
       - name: 🎯 Restore Turbo cache
         uses: actions/cache/restore@v4
         with:
@@ -62,14 +56,11 @@ jobs:
           key: turbo-${{ github.job }}-${{ github.ref_name }}-${{ github.sha }}
           restore-keys: |
             turbo-${{ github.job }}-${{ github.ref_name }}-
-
+      - name: 🧹 Format check
+        run: bun run format
       - name: 🔍 Lint
         run: bun run lint
-
-      - name: 🎨 Format check
-        run: bun run format
-
-      - name: 🔎 Type check
+      - name: 🔧 Type check
         run: bun run typecheck
 
   build:
@@ -78,15 +69,12 @@ jobs:
     steps:
       - name: 🏗 Setup repo
         uses: actions/checkout@v4
-
       - name: 🏗 Setup Bun
         uses: oven-sh/setup-bun@v2
         with:
           bun-version: latest
-
       - name: 📦 Install dependencies
         run: bun install --frozen-lockfile
-
       - name: 🎯 Restore Turbo cache
         uses: actions/cache/restore@v4
         with:
@@ -94,7 +82,6 @@ jobs:
           key: turbo-${{ github.job }}-${{ github.ref_name }}-${{ github.sha }}
           restore-keys: |
             turbo-${{ github.job }}-${{ github.ref_name }}-
-
       - name: 🏗 Build
         run: bun run build
 
@@ -104,15 +91,12 @@ jobs:
     steps:
       - name: 🏗 Setup repo
         uses: actions/checkout@v4
-
       - name: 🏗 Setup Bun
         uses: oven-sh/setup-bun@v2
         with:
           bun-version: latest
-
       - name: 📦 Install dependencies
         run: bun install --frozen-lockfile
-
       - name: 🎯 Restore Turbo cache
         uses: actions/cache/restore@v4
         with:
@@ -120,34 +104,30 @@ jobs:
           key: turbo-${{ github.job }}-${{ github.ref_name }}-${{ github.sha }}
           restore-keys: |
             turbo-${{ github.job }}-${{ github.ref_name }}-
-
       - name: 🧪 Test
         run: bun run test
 
   release:
     needs: [quality, build, test]
     runs-on: ubuntu-latest
-    if: github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master' || github.ref == 'refs/heads/develop' || github.ref == 'refs/heads/release')
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     permissions:
       contents: write
       issues: write
       pull-requests: write
-      id-token: write
+      packages: write
     steps:
       - name: 🏗 Setup repo
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
           token: ${{ secrets.GITHUB_TOKEN }}
-
       - name: 🏗 Setup Bun
         uses: oven-sh/setup-bun@v2
         with:
           bun-version: latest
-
       - name: 📦 Install dependencies
         run: bun install --frozen-lockfile
-
       - name: 🎯 Restore Turbo cache
         uses: actions/cache/restore@v4
         with:
@@ -155,11 +135,13 @@ jobs:
           key: turbo-${{ github.job }}-${{ github.ref_name }}-${{ github.sha }}
           restore-keys: |
             turbo-${{ github.job }}-${{ github.ref_name }}-
-
       - name: 🏗 Build packages for release
         run: bun run build
-
-      - name: 🚀 Release
+      - name: 📝 Create Release Pull Request
+        id: changesets
+        uses: changesets/action@v1
+        with:
+          title: "chore: release version"
+          commit: "chore: release version"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: bun run release

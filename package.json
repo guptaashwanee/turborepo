@@ -21,15 +21,15 @@
 		"build": "turbo run build",
 		"test": "turbo run test",
 		"typecheck": "turbo run typecheck",
-		"release": "semantic-release",
-		"release:dry": "semantic-release --dry-run",
-		"release:packages": "node scripts/release-packages.mjs"
+		"changeset": "changeset",
+		"changeset:version": "changeset version",
+		"changeset:status": "changeset status"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "2.1.1",
+		"@changesets/changelog-github": "^0.5.1",
+		"@changesets/cli": "^2.29.5",
 		"@commitlint/cli": "^19.8.1",
-		"@semantic-release/changelog": "^6.0.3",
-		"@semantic-release/github": "^11.0.3",
 		"@types/bun": "latest",
 		"commitizen": "^4.3.1",
 		"commitlint-config-gitmoji": "^2.3.1",
@@ -37,9 +37,6 @@
 		"cz-gitmoji-adapter": "^2.0.0",
 		"inquirer": "^12.7.0",
 		"lefthook": "^1.12.2",
-		"semantic-release": "^24.2.7",
-		"semantic-release-gitmoji": "^1.6.8",
-		"semantic-release-monorepo": "^8.0.2",
 		"turbo": "^2.5.4"
 	},
 	"peerDependencies": {
