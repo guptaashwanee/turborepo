@@ -137,11 +137,31 @@ jobs:
             turbo-${{ github.job }}-${{ github.ref_name }}-
       - name: 🏗 Build packages for release
         run: bun run build
-      - name: 📝 Create Release Pull Request
+      - name: 📝 Create Release Pull Request or Publish
         id: changesets
         uses: changesets/action@v1
         with:
           title: "chore: release version"
           commit: "chore: release version"
+          commitMode: "github-api"
+          # version: "bun run changeset:version"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # - name: 🤖 Auto-merge release PR
+      #   if: steps.changesets.outputs.pullRequestNumber != ''
+      #   run: |
+      #     echo "Auto-merging release PR #${{ steps.changesets.outputs.pullRequestNumber }}"
+      #     gh pr merge ${{ steps.changesets.outputs.pullRequestNumber }} --auto --squash
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # - name: 🚀 Create GitHub Releases for Apps
+      #   if: steps.changesets.outputs.hasChangesets == 'false'
+      #   run: |
+      #     # Configure git for the action
+      #     git config user.name "github-actions[bot]"
+      #     git config user.email "github-actions[bot]@users.noreply.github.com"
+          
+      #     # Run custom release script
+      #     node scripts/release.mjs
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
