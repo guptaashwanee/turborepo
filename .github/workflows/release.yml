@@ -115,7 +115,7 @@ jobs:
       contents: write
       issues: write
       pull-requests: write
-      packages: write
+      id-token: write
     steps:
       - name: 🏗 Setup repo
         uses: actions/checkout@v4
@@ -144,7 +144,6 @@ jobs:
           title: "chore: release version"
           commit: "chore: release version"
           commitMode: "github-api"
-          # version: "bun run changeset:version"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       # - name: 🤖 Auto-merge release PR
@@ -154,14 +153,14 @@ jobs:
       #     gh pr merge ${{ steps.changesets.outputs.pullRequestNumber }} --auto --squash
       #   env:
       #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      # - name: 🚀 Create GitHub Releases for Apps
-      #   if: steps.changesets.outputs.hasChangesets == 'false'
-      #   run: |
-      #     # Configure git for the action
-      #     git config user.name "github-actions[bot]"
-      #     git config user.email "github-actions[bot]@users.noreply.github.com"
+      - name: 🚀 Create GitHub Releases for Apps
+        if: steps.changesets.outputs.hasChangesets == 'false'
+        run: |
+          # Configure git for the action
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
           
-      #     # Run custom release script
-      #     node scripts/release.mjs
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Run custom release script
+          node scripts/release.mjs
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
