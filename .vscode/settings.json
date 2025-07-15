@@ -69,7 +69,8 @@
 	"files.exclude": {
 		"**/.git": true,
 		"**/.tanstack": true,
-		"**/.turbo": true
+		"**/.turbo": true,
+		".czrc": true
 	},
 	"editor.fontFamily": "JetBrains Mono",
 	"editor.codeLensFontFamily": "JetBrains Mono",
