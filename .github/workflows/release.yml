@@ -147,6 +147,8 @@ jobs:
           title: "chore: release version"
           commit: "chore: release version"
           commitMode: "github-api"
-          publish: "bun run release"
+          publish: "bun run publish"
+          version: "bun run version"
+          createGithubReleases: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

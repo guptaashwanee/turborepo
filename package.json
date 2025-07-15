@@ -24,7 +24,8 @@
 		"changeset": "changeset",
 		"changeset:version": "changeset version",
 		"changeset:status": "changeset status",
-		"release": "changeset publish"
+		"publish": "changeset publish",
+		"version": "changeset version"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "2.1.1",
