@@ -6,12 +6,12 @@
       "repo": "guptaashwanee/turborepo"
     }
   ],
-  "commit": false,
+  "commit": true,
   "fixed": [],
   "linked": [],
   "access": "restricted",
   "baseBranch": "main",
   "updateInternalDependencies": "patch",
-  "ignore": ["@anscer/*"],
+  "ignore": [],
   "privatePackages": { "version": true, "tag": true }
 }

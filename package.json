@@ -23,7 +23,8 @@
 		"typecheck": "turbo run typecheck",
 		"changeset": "changeset",
 		"changeset:version": "changeset version",
-		"changeset:status": "changeset status"
+		"changeset:status": "changeset status",
+		"release": "changeset publish"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "2.1.1",

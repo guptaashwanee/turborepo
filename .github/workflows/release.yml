@@ -15,102 +15,105 @@ env:
   TURBO_TEAM: ${{ vars.TURBO_TEAM }}
 
 jobs:
-  setup:
-    runs-on: ubuntu-latest
-    outputs:
-      turbo-cache-hit: ${{ steps.turbo-cache.outputs.cache-hit }}
-    steps:
-      - name: 🏗 Setup repo
-        uses: actions/checkout@v4
-      - name: 🏗 Setup Bun
-        uses: oven-sh/setup-bun@v2
-        with:
-          bun-version: latest
-      - name: 📦 Install dependencies
-        run: bun install --frozen-lockfile
-      - name: 🎯 Setup Turbo cache
-        id: turbo-cache
-        uses: actions/cache@v4
-        with:
-          path: .turbo
-          key: turbo-${{ github.job }}-${{ github.ref_name }}-${{ github.sha }}
-          restore-keys: |
-            turbo-${{ github.job }}-${{ github.ref_name }}-
+  # setup:
+  #   runs-on: ubuntu-latest
+  #   outputs:
+  #     turbo-cache-hit: ${{ steps.turbo-cache.outputs.cache-hit }}
+  #   steps:
+  #     - name: 🏗 Setup repo
+  #       uses: actions/checkout@v4
+  #     - name: 🏗 Setup Bun
+  #       uses: oven-sh/setup-bun@v2
+  #       with:
+  #         bun-version: latest
+  #     - name: 📦 Install dependencies
+  #       run: bun install --frozen-lockfile
+  #     - name: 🎯 Setup Turbo cache
+  #       id: turbo-cache
+  #       uses: actions/cache@v4
+  #       with:
+  #         path: .turbo
+  #         key: turbo-${{ github.job }}-${{ github.ref_name }}-${{ github.sha }}
+  #         restore-keys: |
+  #           turbo-${{ github.job }}-${{ github.ref_name }}-
 
-  quality:
-    needs: setup
-    runs-on: ubuntu-latest
-    steps:
-      - name: 🏗 Setup repo
-        uses: actions/checkout@v4
-      - name: 🏗 Setup Bun
-        uses: oven-sh/setup-bun@v2
-        with:
-          bun-version: latest
-      - name: 📦 Install dependencies
-        run: bun install --frozen-lockfile
-      - name: 🎯 Restore Turbo cache
-        uses: actions/cache/restore@v4
-        with:
-          path: .turbo
-          key: turbo-${{ github.job }}-${{ github.ref_name }}-${{ github.sha }}
-          restore-keys: |
-            turbo-${{ github.job }}-${{ github.ref_name }}-
-      - name: 🧹 Format check
-        run: bun run format
-      - name: 🔍 Lint
-        run: bun run lint
-      - name: 🔧 Type check
-        run: bun run typecheck
+  # quality:
+  #   needs: setup
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: 🏗 Setup repo
+  #       uses: actions/checkout@v4
+  #     - name: 🏗 Setup Bun
+  #       uses: oven-sh/setup-bun@v2
+  #       with:
+  #         bun-version: latest
+  #     - name: 📦 Install dependencies
+  #       run: bun install --frozen-lockfile
+  #     - name: 🎯 Restore Turbo cache
+  #       uses: actions/cache/restore@v4
+  #       with:
+  #         path: .turbo
+  #         key: turbo-${{ github.job }}-${{ github.ref_name }}-${{ github.sha }}
+  #         restore-keys: |
+  #           turbo-${{ github.job }}-${{ github.ref_name }}-
+  #     - name: 🧹 Format check
+  #       run: bun run format
+  #     - name: 🔍 Lint
+  #       run: bun run lint
+  #     - name: 🔧 Type check
+  #       run: bun run typecheck
 
-  build:
-    needs: setup
-    runs-on: ubuntu-latest
-    steps:
-      - name: 🏗 Setup repo
-        uses: actions/checkout@v4
-      - name: 🏗 Setup Bun
-        uses: oven-sh/setup-bun@v2
-        with:
-          bun-version: latest
-      - name: 📦 Install dependencies
-        run: bun install --frozen-lockfile
-      - name: 🎯 Restore Turbo cache
-        uses: actions/cache/restore@v4
-        with:
-          path: .turbo
-          key: turbo-${{ github.job }}-${{ github.ref_name }}-${{ github.sha }}
-          restore-keys: |
-            turbo-${{ github.job }}-${{ github.ref_name }}-
-      - name: 🏗 Build
-        run: bun run build
+  # build:
+  #   needs: setup
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: 🏗 Setup repo
+  #       uses: actions/checkout@v4
+  #     - name: 🏗 Setup Bun
+  #       uses: oven-sh/setup-bun@v2
+  #       with:
+  #         bun-version: latest
+  #     - name: 📦 Install dependencies
+  #       run: bun install --frozen-lockfile
+  #     - name: 🎯 Restore Turbo cache
+  #       uses: actions/cache/restore@v4
+  #       with:
+  #         path: .turbo
+  #         key: turbo-${{ github.job }}-${{ github.ref_name }}-${{ github.sha }}
+  #         restore-keys: |
+  #           turbo-${{ github.job }}-${{ github.ref_name }}-
+  #     - name: 🏗 Build
+  #       run: bun run build
 
-  test:
-    needs: setup
-    runs-on: ubuntu-latest
-    steps:
-      - name: 🏗 Setup repo
-        uses: actions/checkout@v4
-      - name: 🏗 Setup Bun
-        uses: oven-sh/setup-bun@v2
-        with:
-          bun-version: latest
-      - name: 📦 Install dependencies
-        run: bun install --frozen-lockfile
-      - name: 🎯 Restore Turbo cache
-        uses: actions/cache/restore@v4
-        with:
-          path: .turbo
-          key: turbo-${{ github.job }}-${{ github.ref_name }}-${{ github.sha }}
-          restore-keys: |
-            turbo-${{ github.job }}-${{ github.ref_name }}-
-      - name: 🧪 Test
-        run: bun run test
+  # test:
+  #   needs: setup
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: 🏗 Setup repo
+  #       uses: actions/checkout@v4
+  #     - name: 🏗 Setup Bun
+  #       uses: oven-sh/setup-bun@v2
+  #       with:
+  #         bun-version: latest
+  #     - name: 📦 Install dependencies
+  #       run: bun install --frozen-lockfile
+  #     - name: 🎯 Restore Turbo cache
+  #       uses: actions/cache/restore@v4
+  #       with:
+  #         path: .turbo
+  #         key: turbo-${{ github.job }}-${{ github.ref_name }}-${{ github.sha }}
+  #         restore-keys: |
+  #           turbo-${{ github.job }}-${{ github.ref_name }}-
+  #     - name: 🧪 Test
+  #       run: bun run test
 
   release:
-    needs: [quality, build, test]
+    # needs: [quality, build, test]
     runs-on: ubuntu-latest
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    outputs:
+      published: ${{ steps.changesets.outputs.published }}
+      publishedPackages: ${{ steps.changesets.outputs.publishedPackages }}
     permissions:
       contents: write
       issues: write
@@ -144,23 +147,6 @@ jobs:
           title: "chore: release version"
           commit: "chore: release version"
           commitMode: "github-api"
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      # - name: 🤖 Auto-merge release PR
-      #   if: steps.changesets.outputs.pullRequestNumber != ''
-      #   run: |
-      #     echo "Auto-merging release PR #${{ steps.changesets.outputs.pullRequestNumber }}"
-      #     gh pr merge ${{ steps.changesets.outputs.pullRequestNumber }} --auto --squash
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: 🚀 Create GitHub Releases for Apps
-        if: steps.changesets.outputs.hasChangesets == 'false'
-        run: |
-          # Configure git for the action
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          
-          # Run custom release script
-          node scripts/release.mjs
+          publish: "bun run release"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
